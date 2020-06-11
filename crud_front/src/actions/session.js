@@ -21,6 +21,7 @@ const signIn = ({ email, password, successCb, errorCb }) => {
   return dispatch => {
     signInUser({ email, password })(dispatch)
       .then(res => {
+        console.log(res)
         dispatch(signInSuccess())
         successCb()
       })

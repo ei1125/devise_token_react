@@ -16,7 +16,7 @@ const registerFailure = response => {
     type: "REGISTER_FAILURE",
   }
 }
-
+//reducers/index.jsで使用
 const register = ({
   name,
   email,
@@ -26,15 +26,13 @@ const register = ({
   errorCb,
 }) => {
   return dispatch => {
-    registerUser({ name, email, password, passwordConfirmation })(dispatch)
-      .then(res => {
-        dispatch(registerSuccess())
-        successCb()
-      })
-      .catch(error => {
-        dispatch(registerFailure())
-        errorCb(error)
-      })
+    registerUser({ name, email, password, passwordConfirmation })(dispatch).then(res => {
+      dispatch(registerSuccess())
+      successCb()
+    }).catch(error => {
+      dispatch(registerFailure())
+      errorCb(error)
+    })
   }
 }
 

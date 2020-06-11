@@ -2,10 +2,11 @@ import { generateAuthActions } from "redux-token-auth"
 import Settings from "./application"
 
 const config = {
+  //authUrl: Settings.AUTH_URL,
   authUrl: Settings.AUTH_URL,
   userAttributes: {
     name: "name",
-    team: "team",
+    // team: "team",
   },
   userRegistrationAttributes: {
     name: "name",

@@ -9,7 +9,6 @@ import session from "./session"
 export default combineReducers({
   reduxTokenAuth,
   notifications,
-
   register,
   session,
 })

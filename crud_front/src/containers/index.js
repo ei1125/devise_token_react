@@ -6,7 +6,8 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/">新規登録</Link>
+        <div>トップページです</div>
+        <Link to="/signUp">新規登録</Link>
         
       </div>
     )
