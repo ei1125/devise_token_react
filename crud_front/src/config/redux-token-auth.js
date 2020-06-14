@@ -6,7 +6,6 @@ const config = {
   authUrl: Settings.AUTH_URL,
   userAttributes: {
     name: "name",
-    // team: "team",
   },
   userRegistrationAttributes: {
     name: "name",

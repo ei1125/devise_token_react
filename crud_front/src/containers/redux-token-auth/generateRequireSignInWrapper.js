@@ -5,15 +5,15 @@ const generateRequireSignInWrapper = ({ redirectPathIfNotSignedIn }) => {
   const requireSignInWrapper = PageComponent => {
     class GatedPage extends React.Component {
       componentDidUpdate() {
-        const { history, isSignedIn, hasVerificationBeenAttempted } = this.props
-        if (hasVerificationBeenAttempted && !isSignedIn) {
+        const { history, isSignedIn } = this.props
+        if (!isSignedIn) {
           history.replace(redirectPathIfNotSignedIn)
         }
       }
 
       render() {
-        const { hasVerificationBeenAttempted, isSignedIn } = this.props
-        return hasVerificationBeenAttempted && isSignedIn ? (
+        const { isSignedIn } = this.props
+        return isSignedIn ? (
           <PageComponent {...this.props} />
         ) : (
           <div />
@@ -23,8 +23,6 @@ const generateRequireSignInWrapper = ({ redirectPathIfNotSignedIn }) => {
 
     const mapStateToProps = (state) => ({
       isSignedIn: state.reduxTokenAuth.currentUser.isSignedIn,
-      hasVerificationBeenAttempted:
-        state.reduxTokenAuth.currentUser.hasVerificationBeenAttempted,
     })
 
     return connect(mapStateToProps)(GatedPage)
